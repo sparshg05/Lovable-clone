@@ -1,5 +1,5 @@
 package com.example.springProjects.Lovable_clone.enums;
 
-public class SubscriptionStatus {
-
+public enum SubscriptionStatus {
+    ACTIVE, TRIALING, CANCELED, PAST_DUE, INCOMPLETE
 }

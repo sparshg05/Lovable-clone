@@ -18,17 +18,13 @@ public class ProjectController {
 
     private final ProjectService projectService;
 
-    public ProjectController(ProjectService projectService) {
-        this.projectService = projectService;
-    }
-
     @GetMapping
     public ResponseEntity<List<ProjectSummaryResponse>> getMyProjects(){
         Long userId = 1L;
         return ResponseEntity.ok(projectService.getUserProjects(userId));
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public ResponseEntity<ProjectResponse> getProjectById(@PathVariable Long id){
         Long userId = 1L;
         return ResponseEntity.ok(projectService.getUserProjectById(id,userId));
@@ -47,9 +43,9 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProject(@PathVariable Long id){
+    public ResponseEntity<Void> deleteProject(@PathVariable Long id) {
         Long userId = 1L;
-        projectService.softDelete(id,userId);
-        return ResponseEntity
+        projectService.softDelete(id, userId);
+        return ResponseEntity.noContent().build();
     }
 }

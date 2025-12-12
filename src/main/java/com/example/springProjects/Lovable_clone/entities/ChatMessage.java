@@ -1,6 +1,6 @@
 package com.example.springProjects.Lovable_clone.entities;
 
-
+import com.example.springProjects.Lovable_clone.enums.MessageRole;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,22 +11,18 @@ import java.time.Instant;
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ProjectFile {
+public class ChatMessage {
 
     Long id;
+    ChatSession chatSession;
 
-    Project project;
+    String content;
 
-    String path;
+    MessageRole role;
 
-    String minioObjectKey;
+    String toolCalls; // JSON Array of Tools Called
+
+    Integer tokensUsed;
 
     Instant createdAt;
-
-    Instant updatedAt;
-
-    User createdBy;
-
-    User updatedBy;
-
 }

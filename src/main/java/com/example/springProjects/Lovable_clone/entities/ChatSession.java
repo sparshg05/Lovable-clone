@@ -1,6 +1,5 @@
 package com.example.springProjects.Lovable_clone.entities;
 
-import com.example.springProjects.Lovable_clone.enums.SubscriptionStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,22 +10,16 @@ import java.time.Instant;
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Subscription {
+public class ChatSession {
 
-    Long id;
+    Project project;
 
     User user;
-    Plan plan;
 
-    SubscriptionStatus status;
-
-    String stripeCustomerId;
-    String stripeSubscriptionId;
-
-    Instant currentPeriodStart;
-    Instant currentPeriodEnd;
-    Boolean cancelAtPeriodEnd = false;
+    String title;
 
     Instant createdAt;
     Instant updatedAt;
+
+    Instant deletedAt; //soft delete
 }

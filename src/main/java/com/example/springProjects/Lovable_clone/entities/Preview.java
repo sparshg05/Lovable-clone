@@ -1,6 +1,6 @@
 package com.example.springProjects.Lovable_clone.entities;
 
-
+import com.example.springProjects.Lovable_clone.enums.PreviewStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,22 +11,21 @@ import java.time.Instant;
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ProjectFile {
+public class Preview {
 
     Long id;
 
     Project project;
 
-    String path;
+    String namespace;
+    String podName;
+    String previewUrl;
 
-    String minioObjectKey;
+    PreviewStatus status;
+
+    Instant startedAt;
+    Instant terminatedAt;
 
     Instant createdAt;
-
-    Instant updatedAt;
-
-    User createdBy;
-
-    User updatedBy;
 
 }

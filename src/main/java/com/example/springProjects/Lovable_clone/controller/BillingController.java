@@ -19,11 +19,6 @@ public class BillingController {
     private final PlanService planService;
     private final SubscriptionService subscriptionService;
 
-    public BillingController(PlanService planService, SubscriptionService subscriptionService) {
-        this.planService = planService;
-        this.subscriptionService = subscriptionService;
-    }
-
     @GetMapping("/api/plans")
     public ResponseEntity<List<PlanResponse>> getAllPlans(){
         return ResponseEntity.ok(planService.getAllActivePlans());
@@ -44,7 +39,8 @@ public class BillingController {
     }
 
     @PostMapping("/api/stripe/portal")
-    public ResponseEntity<PortalResponse> openCustomerPortal(){
-
+    public ResponseEntity<PortalResponse> openCustomerPortal() {
+        Long userId = 1L;
+        return ResponseEntity.ok(subscriptionService.openCustomerPortal(userId));
     }
 }

@@ -1,6 +1,6 @@
 package com.example.springProjects.Lovable_clone.controller;
 
-import com.example.springProjects.Lovable_clone.dto.subscription.PlanLimitResponse;
+import com.example.springProjects.Lovable_clone.dto.subscription.PlanLimitsResponse;
 import com.example.springProjects.Lovable_clone.dto.subscription.UsageTodayResponse;
 import com.example.springProjects.Lovable_clone.service.UsageService;
 import lombok.RequiredArgsConstructor;
@@ -16,10 +16,6 @@ public class UsageController {
 
     private final UsageService usageService;
 
-    public UsageController(UsageService usageService) {
-        this.usageService = usageService;
-    }
-
     @GetMapping("/today")
     public ResponseEntity<UsageTodayResponse> getTodayUsage(){
         Long userId = 1L;
@@ -27,7 +23,8 @@ public class UsageController {
     }
 
     @GetMapping("/limits")
-    public ResponseEntity<PlanLimitResponse> getPlanLimit(){
-
+    public ResponseEntity<PlanLimitsResponse> getPlanLimits() {
+        Long userId = 1L;
+        return ResponseEntity.ok(usageService.getCurrentSubscriptionLimitsOfUser(userId));
     }
 }
